@@ -3,8 +3,9 @@
         <div class="col-xs-12">
             <h1>AppComponent</h1>
             <hr>
-            <app-button></app-button>
-            <app-counter></app-counter>
+            <app-button [label]="'Add'" (click)="add()"></app-button>
+            <app-button [label]="'Substract'" (click)="subtract()"></app-button>
+            <app-counter [counter]="counter"></app-counter>
         </div>
     </div>
 </div>
