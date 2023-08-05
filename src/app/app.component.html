@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button (click)="toggleDetails()">Display Details</button>
+      <p *ngIf="showDetails">
+        Ea sanctus vulputate vero nonumy. Amet elit dolor clita tempor voluptua
+        ex esse odio et ullamcorper odio nonumy no takimata dolor. Justo erat
+        nulla voluptua dolor et. Ut kasd et justo dolores amet duo quis stet et
+        vero rebum justo eos sit. Lorem clita takimata dolor ipsum dolor euismod
+        tempor erat dolor autem.
+      </p>
+        <ngTemplate *ngFor="let log of clickLog; let i = index">
+          <p [ngStyle]="{backgroundColor: i>=4 ? 'blue' : 'unset'}" [ngClass]="{'text-white': i>=4}">{{ log }}</p>
+        </ngTemplate>
+    </div>
+  </div>
+</div>

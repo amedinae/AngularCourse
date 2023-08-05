@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  showDetails: boolean = false;
+  clickLog: Date[] = [];
+
+  toggleDetails() {
+    this.showDetails = !this.showDetails;
+    this.clickLog.push(new Date());
+  }
 }
