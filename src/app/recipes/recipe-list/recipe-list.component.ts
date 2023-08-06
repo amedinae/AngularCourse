@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Recipe } from '../recipes.model';
 
@@ -8,8 +8,10 @@ import { Recipe } from '../recipes.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent {
-  recipes: Recipe[] = [
-    new Recipe('Mote de queso', 'Sopa costeña con ñame y queso', 'https://cdn0.recetasgratis.net/es/posts/0/1/8/mote_de_queso_56810_orig.jpg'),
-    new Recipe('Mote de queso', 'Sopa costeña con ñame y queso', 'https://cdn0.recetasgratis.net/es/posts/0/1/8/mote_de_queso_56810_orig.jpg')
-  ];
+  @Input() recipes: Recipe[];
+  @Output('onRecipeClicked') recipeEmitter = new EventEmitter<Recipe>();
+
+  onRecipeClick(recipeClicked: Recipe) {
+    this.recipeEmitter.emit(recipeClicked);
+  }
 }

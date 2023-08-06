@@ -1,4 +1,7 @@
-import { Component } from '@angular/core'
+import { Component, EventEmitter, Output } from '@angular/core'
+
+import { SectionEnum } from '../shared/section.enum';
+
 
 @Component({
     selector: 'app-header',
@@ -6,5 +9,16 @@ import { Component } from '@angular/core'
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+    statusEnum: typeof SectionEnum = SectionEnum;
+    @Output('onSectionChanged') sectionEmitter = new EventEmitter<SectionEnum>();
+    sectionSelected: SectionEnum;
 
+    updateSection(sectionClicked: SectionEnum) {
+        this.sectionSelected = sectionClicked;
+        this.sectionEmitter.emit(this.sectionSelected);
+    }
+
+    isSectionActive(section: SectionEnum) {
+        return this.sectionSelected === section;
+    }
 }
