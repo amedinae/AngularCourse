@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  numbers: number[] = [];
+
+  addComponent(counter: number) {
+    console.log(this.numbers);
+    this.numbers.push(counter);
+  }
 }
